@@ -136,6 +136,13 @@ body {
     position: relative;
 }
 
+.todoList_list:hover .todoList_basket{
+    display: block;
+}
+
+.todoList_list:hover .todoList_added{
+    display: block;
+}
 
 .todoList_todo {
     text-decoration: none;
@@ -168,12 +175,7 @@ body {
     left: 464px;
     top: 5px;
    
-    display: block;
-}
-
-.todoList_basket:hover{
     display: none;
-
 }
 
 .todoList_added {
@@ -183,6 +185,3 @@ body {
     display: none;
 }
 
-.todoList_added:hover{
-    display: block;
-}
