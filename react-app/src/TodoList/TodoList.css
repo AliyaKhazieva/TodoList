@@ -73,7 +73,7 @@ body {
     color: white;
     font-size: 30px;
     border: none;
-    left: 285px;
+    left: 283px;
     top: 9px;
     cursor: pointer;
 }
@@ -201,7 +201,7 @@ body {
     }
 
     .todoList_btn {
-        left: 262px;
+        left: 258px;
     }
 
     .todoList_select {
@@ -240,8 +240,8 @@ body {
     .todoList_btn {
         left: 197px;
         font-size: 21px;
-        top: 12px;
-        padding: 5px 13px;
+        top: 11px;
+        padding: 6px 13px;
     }
 
     .todoList_select {
@@ -366,7 +366,7 @@ body {
     .todoList_btn {
         left: 113px;
         font-size: 14px;
-        top: 10px;
+        top: 11px;
         width: 10px;
         padding: 4px 12px;
     }
@@ -395,7 +395,7 @@ body {
         width: 271px;
         font-size: 12px;
         padding: 6px;
-        margin: 6px;
+        margin: 9px;
     }
 
     .todoList__basket {
@@ -417,6 +417,77 @@ body {
     }
     .todoList_container::after {
         border-width: 7.4px 5px 0 5px;
+    }
+}
+
+
+@media screen and (min-width: 280px) and (max-width: 359px) {
+
+    .todoList__name {
+        font-size: 19px;
+    }
+
+    .todoList_input {
+        width: 91px;
+        height: 9px;
+        font-size: 11px;
+        padding-left: 9px;
+    }
+
+    .todoList_btn {
+        left: 96px;
+        font-size: 14px;
+        top: 12px;
+        width: 10px;
+        padding: 2px 10px;
+    }
+
+    .send {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .todoList_select {
+        padding: 2px 30px 2px 8px;
+        height: 39px;
+        font-size: 10px;
+    }
+
+    .option {
+        font-size: 10px;
+    }
+
+    .todoList_second {
+        gap: 20px;
+    }
+
+    .todoList__map {
+        width: 221px;
+        font-size: 9px;
+        padding: 6px;
+        margin: 9px;
+    }
+
+    .todoList__basket {
+        left: 183px;
+        top: 3px;
+    }
+
+    .basket {
+        height: 18px;
+    }
+
+    .todoList__added {
+        left: 205px;
+        top: 3px;
+    }
+
+    .added {
+        height: 18px;
+    }
+    .todoList_container::after {
+        border-width: 5.4px 4px 0 4px;
     }
 }
 
