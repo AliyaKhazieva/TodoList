@@ -9,7 +9,6 @@ import { ReactComponent as Added } from './added.svg';
 
 function TodoList () {
 
-    // инпут
 
     let [value, setValue] = useState(localStorage.getItem('value') || '')
 
@@ -20,25 +19,43 @@ function TodoList () {
         setValue(event.target.value)
     }
 
+
     function handelClick() {
-        setTodos([...todos,value])
+        let valueTodo = {id: Math.random(), text: value, status: 'active'}
+        setTodos([...todos, valueTodo])
         setValue('') 
-        localStorage.setItem('todos', JSON.stringify([...todos,value]))
+        localStorage.setItem('todos', JSON.stringify([...todos,valueTodo]))
     }
-
-
-    // useEffect(() => {
-    //     setTodos(JSON.parse(localStorage.getItem('todos')) || [])
-    // }, [])
-
-    // useEffect(() => {
-    //     localStorage.setItem('todos', JSON.stringify(todos))
-    // }, [todos])
 
 
     useEffect(() => {
         localStorage.setItem('value', value)
-    })
+    },[value])
+
+
+    // меняем статус
+    let handleChangeStatus = (todo, status) => {
+        todo.status = status
+        localStorage.setItem('todos', JSON.stringify(todos))
+        setTodos([...todos])
+    }
+
+
+    // меняем статус у селекта
+    let [status, setStatus] = useState(localStorage.getItem('status') || 'active')
+
+    let changeStatus = (e) => {
+        setStatus(e.target.value)
+    }
+
+
+    useEffect(() => {
+        localStorage.setItem('status', status)
+    },[status])
+
+   
+    let results = todos.filter(todo => todo.status === status)
+
 
 
     return (
@@ -47,23 +64,27 @@ function TodoList () {
                 <h1 className='todoList__name'>ToDo List</h1>
                 <div className='todoList_second'>
                     <div className='todoList_input-container'>
-                        <input className='todoList_input' type="text" placeholder="Введите текст..."  onChange={handelChange} value={value}/>
-                        <button className='todoList_btn' onClick={handelClick} disabled={value === ''}><strong>+</strong></button>
+                        <input className='todoList_input' type="text"  maxLength={45} placeholder="Введите текст..."  onChange={handelChange} value={value}/>
+                        <button className='todoList_btn' onClick={handelClick} disabled={value === ''}><strong className='send'>+</strong></button>
                     </div>
                     <div className='todoList_container'>
-                        <select className='todoList_select'>
-                            <option className='option' value="">активные</option>
-                            <option className='option' value="">завершенные</option>
-                            <option className='option' value="">удаленные</option>
+                        <select  defaultValue={status} className='todoList_select'  onChange={changeStatus}>
+                            <option className='option' value="active">активные</option>
+                            <option className='option' value="done">завершенные</option>
+                            <option className='option' value="deleted">удаленные</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <div className='todoList_list-container'>
-              <ul className='todoList_list'>
-                {todos.map(function(todo){
+            <div className='todoList__todo'>
+              <ul className='todoList__list'>
+                {results.map(function(result){
                     return (
-                        <li className='todoList_todo' key={todo}>{todo} <div className='todoList_basket'><Basket /></div> <div className='todoList_added'><Added /></div></li>
+                        <li className='todoList__map' key={result.id}>
+                            {result.text}
+                            <div className='todoList__basket' onClick={() => handleChangeStatus(result, 'deleted')}><Basket className='basket'/></div> 
+                            <div className='todoList__added' onClick={() => handleChangeStatus(result, 'done')}><Added className='added'/></div>
+                        </li>
                     )
                 })}
 

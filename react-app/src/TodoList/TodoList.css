@@ -36,7 +36,7 @@ body {
 .todoList_second {
     margin-top: 30px;
     display: flex;
-    gap: 25px;
+    gap: 35px;
     align-items: center;
     justify-content: center;
 }
@@ -122,38 +122,36 @@ body {
     border-color: white transparent transparent transparent;
 }
 
-.todoList_list-container {
+.todoList__map {
+    text-decoration: none;
+    width: 530px;
+    padding: 10px;
     display: flex;
-    justify-content: center;
-    margin-top: 55px;
+    background-color:rgb(218 231 223 / 46%);
+    margin: 10px;
+    position: relative;
 }
 
-.todoList_list {
+.todoList__list {
     display: flex;
     justify-content: center;
     padding: 0;
     flex-direction: column;
-    position: relative;
 }
 
-.todoList_list:hover .todoList_basket{
+.todoList__list:hover .todoList__basket{
     display: block;
 }
 
-.todoList_list:hover .todoList_added{
+.todoList__list:hover .todoList__added{
     display: block;
 }
 
-.todoList_todo {
-    text-decoration: none;
+.todoList__todo {
     display: flex;
-    width: 530px;
-    padding: 10px;
-    margin: 10px;
-    background-color:rgb(218 231 223 / 46%);
-    justify-content: space-between;
     align-items: center;
-    position: relative;
+    justify-content: center;
+    margin-top: 70px;
 }
 
 
@@ -164,24 +162,261 @@ body {
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 100.1%;
+    height: 200.1%;
     z-index: -2;
 }
 
 
 
-.todoList_basket{
+.todoList__basket{
     position: absolute;
     left: 464px;
     top: 5px;
-   
     display: none;
 }
 
-.todoList_added {
+.todoList__added {
     position: absolute;
     left: 505px;
     top: 5px;
     display: none;
+}
+
+
+
+/* Адаптив */
+
+@media screen and (max-width: 1870px) {
+    
+    .todoList__todo {
+        margin-top: 85px;
+    }
+}
+
+@media screen and (min-width: 590px) and (max-width: 640px) {
+
+
+    .todoList_input {
+        width: 275px;
+    }
+
+    .todoList_btn {
+        left: 262px;
+    }
+
+    .todoList_select {
+        padding: 2px 47px 2px 8px;
+    }
+
+    .todoList_second {
+        gap: 30px;
+    }
+
+    .todoList__map {
+        width: 494px;
+    }
+
+    .todoList__basket {
+        left: 441px;
+    }
+
+    .todoList__added {
+        left: 478px;
+    }
+}
+
+@media screen and (min-width: 499px) and (max-width: 589px) {
+
+    .todoList__name {
+        font-size: 25px;
+    }
+
+    .todoList_input {
+        width: 202px;
+        height: 25px;
+        font-size: 17px;
+    }
+
+    .todoList_btn {
+        left: 197px;
+        font-size: 21px;
+        top: 12px;
+        padding: 5px 13px;
+    }
+
+    .todoList_select {
+        padding: 2px 32px 2px 8px;
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .option {
+        font-size: 18px;
+    }
+
+    .todoList_second {
+        gap: 20px;
+    }
+
+    .todoList__map {
+        width: 393px;
+        font-size: 14px;
+    }
+
+    .todoList__basket {
+        left: 343px;
+        top: 7px;
+    }
+    
+    .basket {
+        height: 25px;
+    }
+
+    .todoList__added {
+        left: 378px;
+        top: 7px;
+    }
+
+    .added {
+        height: 25px;
+    }
+
+}
+
+@media screen and (min-width: 420px) and (max-width: 498px) {
+
+    .todoList__name {
+        font-size: 22px;
+    }
+
+    .todoList_input {
+        width: 155px;
+        height: 18px;
+        font-size: 15px;
+    }
+
+    .todoList_btn {
+        left: 159px;
+        font-size: 16px;
+        top: 12px;
+        width: 10px;
+    }
+
+    .option {
+        font-size: 16px;
+    }
+
+    .send {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .todoList_select {
+        padding: 2px 28px 2px 8px;
+        height: 49px;
+        font-size: 15px;
+    }
+
+    .todoList_second {
+        gap: 18px;
+    }
+
+    .todoList__map {
+        width: 319px;
+        font-size: 13px;
+    }
+
+    .todoList__basket {
+        left: 277px;
+        top: 7px;
+    }
+
+    .basket {
+        height: 25px;
+    }
+
+    .todoList__added {
+        left: 307px;
+        top: 7px;
+    }
+
+    .added {
+        height: 25px;
+    }
+    .todoList_container::after {
+        border-width: 7.4px 5px 0 5px;
+    }
+
+}
+
+@media screen and (min-width: 360px) and (max-width: 419px) {
+
+    .todoList__name {
+        font-size: 20px;
+    }
+
+    .todoList_input {
+        width: 113px;
+        height: 13px;
+        font-size: 13px;
+        padding-left: 9px;
+    }
+
+    .todoList_btn {
+        left: 113px;
+        font-size: 14px;
+        top: 10px;
+        width: 10px;
+        padding: 4px 12px;
+    }
+
+    .send {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .todoList_select {
+        padding: 2px 30px 2px 8px;
+        height: 43px;
+        font-size: 13px;
+    }
+
+    .option {
+        font-size: 13px;
+    }
+
+    .todoList_second {
+        gap: 20px;
+    }
+
+    .todoList__map {
+        width: 271px;
+        font-size: 12px;
+        padding: 6px;
+        margin: 6px;
+    }
+
+    .todoList__basket {
+        left: 223px;
+        top: 4px;
+    }
+
+    .basket {
+        height: 20px;
+    }
+
+    .todoList__added {
+        left: 252px;
+        top: 4px;
+    }
+
+    .added {
+        height: 20px;
+    }
+    .todoList_container::after {
+        border-width: 7.4px 5px 0 5px;
+    }
 }
 
